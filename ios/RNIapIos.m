@@ -317,6 +317,7 @@ RCT_EXPORT_METHOD(getPendingTransactions:(RCTPromiseResolveBlock)resolve
                                                  item.transactionIdentifier, @"transactionId",
                                                  item.payment.productIdentifier, @"productId",
                                                  [receiptData base64EncodedStringWithOptions:0], @"transactionReceipt",
+                                                 [[NSString alloc] initWithData:[item transactionReceipt] encoding:NSASCIIStringEncoding], @"deprecatedReceiptIOS",
                                                  nil
                                                  ];
                 [output addObject:purchase];
@@ -706,6 +707,7 @@ RCT_EXPORT_METHOD(getPendingTransactions:(RCTPromiseResolveBlock)resolve
                                              transaction.transactionIdentifier, @"transactionId",
                                              transaction.payment.productIdentifier, @"productId",
                                              [receiptData base64EncodedStringWithOptions:0], @"transactionReceipt",
+                                             [[NSString alloc] initWithData:[transaction transactionReceipt] encoding:NSASCIIStringEncoding], @"deprecatedReceiptIOS",
                                              nil
                                              ];
 
